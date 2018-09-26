@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Athlete\'sFood</string>
+    <string name="start_greeting">Привет! Если ты читаешь этот текст, значит хочешь
+        подкорректировать свою фигуру. А мы поможем и направим! Для начала давай узнаем, какая у
+    нас отправная точка.</string>
+    <string name="input_growth">Выбери свой рост (в сантиметрах):</string>
+    <string name="input_weight">Выбери свой вес (в килограммах):</string>
+    <string name="input_age">Выбери свой возраст:</string>
+    <string name="pick_coeff_of_mobility">Выбери свой вид активности: </string>
+    <string name="radio_button_low_activity">Низкая (сидячий образ жизни);</string>
+    <string name="radio_button_small_activity">Малая (1–3 раза в неделю легкие тренировки);</string>
+    <string name="radio_button_middle_activity">Средняя (1–3 раза в неделю интенсивные
+        тренировки);</string>
+    <string name="radio_button_high_activity">Высокая (более 3 тренировок в неделю высокой
+        интенсивности).</string>
+    <string name="basic_pool">Твой базовый пул - %1$d ккал. </string>
+    <string name="basic_pool_description">Это и является нашей отправной точкой.
+        Данный пул - не идеален, поскольку не учитывает целого ряда особенностей, однако для начала
+    подойдет. В дальнейшем мы будем корректировать данное значение еженедельно для достижения
+        максимальной эффективности.</string>
+    <string name="next">Next</string>
+    <string name="point">.</string>
+</resources>
