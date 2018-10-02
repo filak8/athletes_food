@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 
-import com.example.lenovo.athletesfood.constant.Constants;
+import com.example.lenovo.athletesfood.models.constant.Constants;
 
 public class EnterUserAgeActivity extends AppCompatActivity {
 
@@ -30,7 +30,8 @@ public class EnterUserAgeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveDataAge(mNpAge);
-                startActivity(new Intent(EnterUserAgeActivity.this, UserPickCoeffOfMobilityActivity.class));
+                startActivity(new Intent(EnterUserAgeActivity.this,
+                        UserPickCoeffOfMobilityActivity.class));
             }
         });
     }

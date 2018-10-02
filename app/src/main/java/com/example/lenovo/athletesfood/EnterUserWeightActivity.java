@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 
-import com.example.lenovo.athletesfood.constant.Constants;
+import com.example.lenovo.athletesfood.models.constant.Constants;
 
 public class EnterUserWeightActivity extends AppCompatActivity {
 
