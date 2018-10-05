@@ -1,5 +1,6 @@
 package com.example.lenovo.athletesfood;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -73,7 +74,7 @@ public class UserPickCoeffOfMobilityActivity extends AppCompatActivity {
 
                 new UserAsyncTask(Constants.TASK_INSERT).execute(mUser);
 
-
+                startActivity(new Intent(UserPickCoeffOfMobilityActivity.this, BodyAppActivity.class));
             }
         });
     }

@@ -22,7 +22,7 @@
         <activity android:name=".EnterUserWeightActivity" />
         <activity android:name=".EnterUserAgeActivity" />
         <activity android:name=".UserPickCoeffOfMobilityActivity" />
-        <activity android:name=".BodyAppActivity"></activity>
+        <activity android:name=".BodyAppActivity" />
     </application>
 
 </manifest>
