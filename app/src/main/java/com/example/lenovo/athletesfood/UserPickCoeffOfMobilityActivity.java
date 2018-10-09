@@ -2,7 +2,6 @@ package com.example.lenovo.athletesfood;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,8 +12,7 @@ import android.widget.RadioGroup;
 
 import com.example.lenovo.athletesfood.models.constant.Constants;
 import com.example.lenovo.athletesfood.models.dataBase.DataBase;
-import com.example.lenovo.athletesfood.models.dataBase.User;
-import com.example.lenovo.athletesfood.models.dataBase.UserDao;
+import com.example.lenovo.athletesfood.models.dataBase.User.User;
 
 import java.util.Random;
 

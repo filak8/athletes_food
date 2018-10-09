@@ -2,12 +2,11 @@ package com.example.lenovo.athletesfood;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.lenovo.athletesfood.models.constant.Constants;
 import com.example.lenovo.athletesfood.models.dataBase.DataBase;
-import com.example.lenovo.athletesfood.models.dataBase.User;
-import com.example.lenovo.athletesfood.models.dataBase.UserDao;
+import com.example.lenovo.athletesfood.models.dataBase.User.User;
+import com.example.lenovo.athletesfood.models.dataBase.User.UserDao;
 
 public class UserAsyncTask extends AsyncTask<User, Void, Void> {
     private int TASK_KEY;

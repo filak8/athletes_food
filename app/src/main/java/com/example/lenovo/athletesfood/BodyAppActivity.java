@@ -6,21 +6,24 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.example.lenovo.athletesfood.fragments.CreateANewMenuFragment;
 import com.example.lenovo.athletesfood.fragments.FoodDataBaseFragment;
 import com.example.lenovo.athletesfood.fragments.HistoryFragment;
 import com.example.lenovo.athletesfood.fragments.MenuFragment;
 import com.example.lenovo.athletesfood.models.constant.Constants;
 
-public class BodyAppActivity extends AppCompatActivity {
+public class BodyAppActivity extends AppCompatActivity implements MenuFragment.OnCreatedMenuListener {
 
     private BottomNavigationView mBottomNavigationView;
     private FrameLayout mFrameLayout;
     private MenuFragment mFragmentMenu;
     private FoodDataBaseFragment mFragmentFoodDataBase;
     private HistoryFragment mFragmentHistory;
+    private CreateANewMenuFragment mNewMenuFragment;
     private Fragment mActingFtagment;
 
     private int FRAGMENT_TAG;
@@ -37,6 +40,7 @@ public class BodyAppActivity extends AppCompatActivity {
         mFragmentMenu = new MenuFragment();
         mFragmentFoodDataBase = new FoodDataBaseFragment();
         mFragmentHistory = new HistoryFragment();
+        mNewMenuFragment = new CreateANewMenuFragment();
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -106,5 +110,11 @@ public class BodyAppActivity extends AppCompatActivity {
             setFragment(mFragmentMenu);
             mActingFtagment = mFragmentMenu;
         } else setFragment(mActingFtagment);
+    }
+
+    @Override
+    public void onMenuCreated() {
+        setFragment(mNewMenuFragment);
+        Log.d("AAA", "Activity BodyAppActivity; method onMenuCreated worked.");
     }
 }
