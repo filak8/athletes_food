@@ -24,13 +24,13 @@ public class EnterUserWeightActivity extends AppCompatActivity {
         final NumberPicker mNpWeightDecimal = (NumberPicker)
                 findViewById(R.id.number_picker_weigth_decimal);
 
-        mNpWeightInteger.setMinValue(30);
-        mNpWeightInteger.setMaxValue(180);
-        mNpWeightInteger.setValue(90);
+        mNpWeightInteger.setMinValue(Constants.NUMBER_PICKER_WEIGHT_INTEGER_MIN_VALUE);
+        mNpWeightInteger.setMaxValue(Constants.NUMBER_PICKER_WEIGHT_INTEGER_MAX_VALUE);
+        mNpWeightInteger.setValue(Constants.NUMBER_PICKER_WEIGHT_INTEGER_VALUE);
         mNpWeightInteger.setWrapSelectorWheel(false);
 
-        mNpWeightDecimal.setMinValue(0);
-        mNpWeightDecimal.setMaxValue(9);
+        mNpWeightDecimal.setMinValue(Constants.NUMBER_PICKER_WEIGHT_DECIMAL_MIN_VALUE);
+        mNpWeightDecimal.setMaxValue(Constants.NUMBER_PICKER_WEIGHT_DECIMAL_MAX_VALUE);
         mNpWeightDecimal.setWrapSelectorWheel(false);
 
         mBtnNextActivity.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +49,8 @@ public class EnterUserWeightActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = mShpSetWeight.edit();
         editor.putFloat(Constants.ARGS_KEY_SHARED_PREFERENSES_EDITOR_WEIGHT,
                 (float) mNpWeightInteger.getValue() + ((float)(mNpWeightDecimal.getValue())/10));
-        Log.d("AAA", "SharedPrefernses Weight: " +   ((float) mNpWeightInteger.getValue() + ((float)(mNpWeightDecimal.getValue())/10)));
+        Log.d("AAA", "SharedPrefernses Weight: " +
+                ((float) mNpWeightInteger.getValue() + ((float)(mNpWeightDecimal.getValue())/10)));
         editor.apply();
     }
 }

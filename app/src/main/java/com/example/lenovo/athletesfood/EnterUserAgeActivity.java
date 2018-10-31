@@ -21,9 +21,9 @@ public class EnterUserAgeActivity extends AppCompatActivity {
         final NumberPicker mNpAge = (NumberPicker) findViewById(R.id.number_picker_age);
         Button mBtnNextActivity = (Button) findViewById(R.id.next_activity);
 
-        mNpAge.setMinValue(10);
-        mNpAge.setMaxValue(80);
-        mNpAge.setValue(30);
+        mNpAge.setMinValue(Constants.NUMBER_PICKER_AGE_MIN_VALUE);
+        mNpAge.setMaxValue(Constants.NUMBER_PICKER_AGE_MAX_VALUE);
+        mNpAge.setValue(Constants.NUMBER_PICKER_AGE_VALUE);
         mNpAge.setWrapSelectorWheel(false);
 
         mBtnNextActivity.setOnClickListener(new View.OnClickListener() {

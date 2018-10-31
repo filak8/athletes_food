@@ -11,15 +11,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.lenovo.athletesfood.models.constant.Constants;
-import com.example.lenovo.athletesfood.models.dataBase.DataBase;
-import com.example.lenovo.athletesfood.models.dataBase.User.User;
+import com.example.lenovo.athletesfood.models.dataBase.user.User;
 
 import java.util.Random;
 
 public class UserPickCoeffOfMobilityActivity extends AppCompatActivity {
 
     private float mCoeffOfMobility;
-    private DataBase dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,17 +60,22 @@ public class UserPickCoeffOfMobilityActivity extends AppCompatActivity {
         mBtnNextActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences mSpParams = getSharedPreferences(Constants.ARGS_KEY_SHARED_PREFERENSES, MODE_PRIVATE);
+                SharedPreferences mSpParams = getSharedPreferences(Constants.
+                        ARGS_KEY_SHARED_PREFERENSES, MODE_PRIVATE);
                 User mUser = new User();
                 mUser.setId(new Random().nextInt());
-                mUser.setGrowth(mSpParams.getInt(Constants.ARGS_KEY_SHARED_PREFERENSES_EDITOR_GROWTH, 0));
-                mUser.setWeight(mSpParams.getFloat(Constants.ARGS_KEY_SHARED_PREFERENSES_EDITOR_WEIGHT, 0));
-                mUser.setAge(mSpParams.getInt(Constants.ARGS_KEY_SHARED_PREFERENSES_EDITOR_AGE, 0));
+                mUser.setGrowth(mSpParams.getInt(Constants.
+                        ARGS_KEY_SHARED_PREFERENSES_EDITOR_GROWTH, Constants.NUMBER_NULL));
+                mUser.setWeight(mSpParams.getFloat(Constants.
+                        ARGS_KEY_SHARED_PREFERENSES_EDITOR_WEIGHT, Constants.NUMBER_NULL));
+                mUser.setAge(mSpParams.getInt(Constants.
+                        ARGS_KEY_SHARED_PREFERENSES_EDITOR_AGE, Constants.NUMBER_NULL));
                 mUser.setCoeffOfMobility(mCoeffOfMobility);
 
                 new UserAsyncTask(Constants.TASK_INSERT).execute(mUser);
 
-                startActivity(new Intent(UserPickCoeffOfMobilityActivity.this, BodyAppActivity.class));
+                startActivity(new Intent(UserPickCoeffOfMobilityActivity.this,
+                        BodyAppActivity.class));
             }
         });
     }

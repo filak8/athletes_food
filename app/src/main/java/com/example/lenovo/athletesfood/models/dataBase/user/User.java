@@ -1,4 +1,4 @@
-package com.example.lenovo.athletesfood.models.dataBase.User;
+package com.example.lenovo.athletesfood.models.dataBase.user;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

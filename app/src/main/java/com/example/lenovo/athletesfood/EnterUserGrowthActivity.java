@@ -18,9 +18,9 @@ public class EnterUserGrowthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_enter_user_growth);
 
         final NumberPicker mNpGrowth = (NumberPicker) findViewById(R.id.number_picker_growth);
-        mNpGrowth.setMaxValue(250);
-        mNpGrowth.setMinValue(100);
-        mNpGrowth.setValue(180);
+        mNpGrowth.setMaxValue(Constants.NUMBER_PICKER_GROWTH_MAX_VALUE);
+        mNpGrowth.setMinValue(Constants.NUMBER_PICKER_GROWTH_MIN_VALUE);
+        mNpGrowth.setValue(Constants.NUMBER_PICKER_GROWTH_VALUE);
         mNpGrowth.setWrapSelectorWheel(false);
 
         Button mBtnNextActivity = (Button) findViewById(R.id.next_activity);

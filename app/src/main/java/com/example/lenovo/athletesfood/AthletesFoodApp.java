@@ -3,6 +3,7 @@ package com.example.lenovo.athletesfood;
 import android.app.Application;
 import android.arch.persistence.room.Room;
 
+import com.example.lenovo.athletesfood.models.constant.Constants;
 import com.example.lenovo.athletesfood.models.dataBase.DataBase;
 
 public class AthletesFoodApp extends Application {
@@ -21,6 +22,6 @@ public class AthletesFoodApp extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        dataBase = Room.databaseBuilder(this, DataBase.class, "database").build();
+        dataBase = Room.databaseBuilder(this, DataBase.class, Constants.ARGS_KEY_DATABASE_NAME).build();
     }
 }

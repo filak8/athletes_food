@@ -5,12 +5,11 @@ import android.util.Log;
 
 import com.example.lenovo.athletesfood.models.constant.Constants;
 import com.example.lenovo.athletesfood.models.dataBase.DataBase;
-import com.example.lenovo.athletesfood.models.dataBase.User.User;
-import com.example.lenovo.athletesfood.models.dataBase.User.UserDao;
+import com.example.lenovo.athletesfood.models.dataBase.user.User;
+import com.example.lenovo.athletesfood.models.dataBase.user.UserDao;
 
 public class UserAsyncTask extends AsyncTask<User, Void, Void> {
     private int TASK_KEY;
-    private User user;
     private DataBase dataBase;
 
     public UserAsyncTask(int TASK_KEY) {

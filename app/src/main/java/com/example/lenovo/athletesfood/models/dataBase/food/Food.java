@@ -1,4 +1,4 @@
-package com.example.lenovo.athletesfood.models.dataBase.Food;
+package com.example.lenovo.athletesfood.models.dataBase.food;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
@@ -9,15 +9,16 @@ import com.example.lenovo.athletesfood.models.constant.Constants;
 @Entity(tableName = Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE)
 public class Food {
     @PrimaryKey @NonNull
-    private String nameFood;
+    private String foodName;
+    private String foodType;
     private float kcal;
 
-    public String getNameFood() {
-        return nameFood;
+    public String getFoodName() {
+        return foodName;
     }
 
-    public void setNameFood(String nameFood) {
-        this.nameFood = nameFood;
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
     }
 
     public float getKcal() {
@@ -26,5 +27,13 @@ public class Food {
 
     public void setKcal(float kcal) {
         this.kcal = kcal;
+    }
+
+    public String getFoodType() {
+        return foodType;
+    }
+
+    public void setFoodType(String foodType) {
+        this.foodType = foodType;
     }
 }

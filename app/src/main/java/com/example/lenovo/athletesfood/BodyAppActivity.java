@@ -9,25 +9,30 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
-import com.example.lenovo.athletesfood.fragments.CreateANewMenuFragment;
+import com.example.lenovo.athletesfood.fragments.ProductCategoriesFragment;
 import com.example.lenovo.athletesfood.fragments.FoodDataBaseFragment;
 import com.example.lenovo.athletesfood.fragments.HistoryFragment;
 import com.example.lenovo.athletesfood.fragments.MenuFragment;
 import com.example.lenovo.athletesfood.models.constant.Constants;
+import com.example.lenovo.athletesfood.models.dataBase.food.Food;
 
-public class BodyAppActivity extends AppCompatActivity implements MenuFragment.OnCreatedMenuListener {
+import java.util.ArrayList;
+
+public class BodyAppActivity extends AppCompatActivity
+        implements MenuFragment.OnCreatedMenuListener {
 
     private BottomNavigationView mBottomNavigationView;
     private FrameLayout mFrameLayout;
-    private MenuFragment mFragmentMenu;
-    private FoodDataBaseFragment mFragmentFoodDataBase;
-    private HistoryFragment mFragmentHistory;
-    private CreateANewMenuFragment mNewMenuFragment;
-    private Fragment mActingFtagment;
+    private MenuFragment mMenuFragment;
+    private FoodDataBaseFragment mFoodDataBaseFragment;
+    private HistoryFragment mHistoryFragment;
+    private ProductCategoriesFragment mProductCategoriesFragment;
+    private Fragment mActingFragment;
+    private ArrayList<Food> foods;
 
     private int FRAGMENT_TAG;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,38 +42,48 @@ public class BodyAppActivity extends AppCompatActivity implements MenuFragment.O
         mBottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         mFrameLayout = (FrameLayout) findViewById(R.id.frame_layout);
 
-        mFragmentMenu = new MenuFragment();
-        mFragmentFoodDataBase = new FoodDataBaseFragment();
-        mFragmentHistory = new HistoryFragment();
-        mNewMenuFragment = new CreateANewMenuFragment();
+        mMenuFragment = new MenuFragment();
+        mFoodDataBaseFragment = new FoodDataBaseFragment();
+        mHistoryFragment = new HistoryFragment();
+        mProductCategoriesFragment = new ProductCategoriesFragment();
+
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.action_menu:
-                        setFragment(mFragmentMenu);
                         FRAGMENT_TAG = Constants.FRAGMENT_TAG_MENU;
+                        clearBackStackFragment();
+                        showFragmentByTag(FRAGMENT_TAG);
                         return true;
                     case R.id.action_data:
-                        setFragment(mFragmentFoodDataBase);
                         FRAGMENT_TAG = Constants.FRAGMENT_TAG_FOOD_DATABASE;
+                        clearBackStackFragment();
+                        showFragmentByTag(FRAGMENT_TAG);
                         return true;
                     case R.id.action_history:
-                        setFragment(mFragmentHistory);
                         FRAGMENT_TAG = Constants.FRAGMENT_TAG_HISTORY;
+                        clearBackStackFragment();
+                        showFragmentByTag(FRAGMENT_TAG);
                         return true;
                     default:
                         return false;
                 }
             }
         });
+
+      /*  creatingAListOfProducts();*/
     }
 
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction mFragmentTransaction = getSupportFragmentManager().beginTransaction();
+        if (mActingFragment == mProductCategoriesFragment) {
+            mFragmentTransaction.addToBackStack(null);
+        }
         mFragmentTransaction.replace(R.id.frame_layout, fragment);
+
         mFragmentTransaction.commit();
     }
 
@@ -94,27 +109,33 @@ public class BodyAppActivity extends AppCompatActivity implements MenuFragment.O
     private void showFragmentByTag(int FRAGMENT_TAG) {
         switch (FRAGMENT_TAG) {
             case Constants.FRAGMENT_TAG_MENU:
-                mActingFtagment = mFragmentMenu;
+                mActingFragment = mMenuFragment;
                 break;
             case Constants.FRAGMENT_TAG_FOOD_DATABASE:
-                mActingFtagment = mFragmentFoodDataBase;
+                mActingFragment = mFoodDataBaseFragment;
                 break;
             case Constants.FRAGMENT_TAG_HISTORY:
-                mActingFtagment = mFragmentHistory;
+                mActingFragment = mHistoryFragment;
                 break;
             default:
                 break;
         }
 
-        if (mActingFtagment == null) {
-            setFragment(mFragmentMenu);
-            mActingFtagment = mFragmentMenu;
-        } else setFragment(mActingFtagment);
+        if (mActingFragment == null) {
+            mActingFragment = mMenuFragment;
+            setFragment(mMenuFragment);
+        } else setFragment(mActingFragment);
     }
 
     @Override
     public void onMenuCreated() {
-        setFragment(mNewMenuFragment);
+        mActingFragment = mProductCategoriesFragment;
+        setFragment(mProductCategoriesFragment);
         Log.d("AAA", "Activity BodyAppActivity; method onMenuCreated worked.");
+    }
+
+    private void clearBackStackFragment(){
+        if(getSupportFragmentManager().getBackStackEntryCount() > 0)
+            getSupportFragmentManager().popBackStack();
     }
 }
