@@ -16,4 +16,10 @@ public interface FoodDao {
 
     @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE)
     List<Food> getAll();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'meat'")
+    List<Food> getAllMeat();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'porridge'")
+    List<Food> getAllPorridge();
 }

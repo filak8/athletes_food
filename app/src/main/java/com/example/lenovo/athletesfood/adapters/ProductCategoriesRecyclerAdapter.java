@@ -12,7 +12,6 @@ import com.example.lenovo.athletesfood.viewHolders.ProductCategoriesViewHolder;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 
 public class ProductCategoriesRecyclerAdapter extends RecyclerView.Adapter<ProductCategoriesViewHolder> {
     private ArrayList<String> mAlProductCategoriesName;
@@ -20,7 +19,8 @@ public class ProductCategoriesRecyclerAdapter extends RecyclerView.Adapter<Produ
     private OnProductCategoriesClickListener productCategoriesClickListener;
 
     public ProductCategoriesRecyclerAdapter(ArrayList<String> mAlProductCategoriesName/*, int[] mAlProductCategoriesImage*/,
-                                            OnProductCategoriesClickListener productCategoriesClickListener) {
+                                            OnProductCategoriesClickListener
+                                                    productCategoriesClickListener) {
         this.mAlProductCategoriesName = mAlProductCategoriesName;
        /* this.mAlProductCategoriesImage = mAlProductCategoriesImage;*/
         this.productCategoriesClickListener = productCategoriesClickListener;
@@ -35,8 +35,10 @@ public class ProductCategoriesRecyclerAdapter extends RecyclerView.Adapter<Produ
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ProductCategoriesViewHolder productCategoriesViewHolder, final int i) {
-        productCategoriesViewHolder.getmTvProductCategoriesName().setText(mAlProductCategoriesName.get(i));
+    public void onBindViewHolder(@NonNull final ProductCategoriesViewHolder
+                                             productCategoriesViewHolder, final int i) {
+        productCategoriesViewHolder.getmTvProductCategoriesName()
+                .setText(mAlProductCategoriesName.get(i));
         /*Picasso.get().load(mAlProductCategoriesImage[i]).into(productCategoriesViewHolder.getmIvProductCategoriesImage());*/
         productCategoriesViewHolder.getmClProductCategories().setOnClickListener(
                 new View.OnClickListener() {

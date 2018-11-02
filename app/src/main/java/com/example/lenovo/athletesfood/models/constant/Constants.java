@@ -8,6 +8,8 @@ public class Constants {
     public static final String ARGS_KEY_SHARED_PREFERENSES_EDITOR_WEIGHT = "user_data_weight";
     public static final String ARGS_KEY_SHARED_PREFERENSES_EDITOR_AGE = "user_data_age";
 
+    public static final String ARGS_KEY_BUNDLE_SELECTED_PRODUCT_CATEGORIES = "selected_product_categories";
+
     public static final String ARGS_KEY_DATABASE_TABLE_NAME_USER_PARAMS = "user_params";
     public static final String ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE = "food_database";
     public static final String ARGS_KEY_DATABASE_TABLE_NAME_PORRIDGE_DATABASE = "PORRIDGE_database";
@@ -15,6 +17,9 @@ public class Constants {
     public static final String ARGS_KEY_FRAGMENT_TAG = "fragment_tag";
     public static final String ARGS_KEY_ASSET_PATH = "fonts/Sun.ttf";
     public static final String ARGS_KEY_OBJECT_ANIMATOR_PROGRESS = "progress";
+
+    public static final String ARGS_KEY_FOOD_TYPE_MEAT = "meat";
+    public static final String ARGS_KEY_FOOD_TYPE_PORRIDGE = "porridge";
 
     public static final float COEFF_OF_MOBILITY_LOW = 1.2f;
     public static final float COEFF_OF_MOBILITY_SMALL = 1.38f;
@@ -45,6 +50,7 @@ public class Constants {
     public static final int NUMBER_PICKER_WEIGHT_DECIMAL_MAX_VALUE = 9;
 
     public static final int NUMBER_NULL = 0;
+    public static final int GRID_LAYOUT_SPAN_COUNT = 3;
 
     public static final int HANDLER_DELAY_MILLIS = 3000;
     public static final int OBJECT_ANIMATOR_DURATION = 4000;
