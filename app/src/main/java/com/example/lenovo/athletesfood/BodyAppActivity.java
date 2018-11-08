@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.lenovo.athletesfood.fragments.NewMenuFragment;
 import com.example.lenovo.athletesfood.fragments.ProductCategoriesFragment;
@@ -161,7 +162,12 @@ public class BodyAppActivity extends AppCompatActivity implements
 
     @Override
     public void onProductSelected(Food food) {
-        //Use for added selected product in new menu.
+        mActingFragment = mNewMenuFragment;
+        setFragment(mNewMenuFragment);
+
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.ARGS_KEY_FOOD_NAME, food.getFoodName());
+        mNewMenuFragment.setArguments(bundle);
     }
 
     @Override

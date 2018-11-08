@@ -9,13 +9,6 @@ import android.widget.Button;
 
 public class StartGreetingActivity extends AppCompatActivity {
 
-    private int mGrowth = 168;
-    private double mWeight = 92.7;
-    private int mAge = 24;
-    private double mPhysicalActivity = 1.2;
-    private int mStartingPool;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +22,5 @@ public class StartGreetingActivity extends AppCompatActivity {
                         EnterUserGrowthActivity.class));
             }
         });
-
-        mStartingPool = (int)((655 + (mGrowth * 1.8) + (mWeight * 9.6) - (mAge * 4.7)) * mPhysicalActivity);
-        Log.d("AAA", "StartingPool: " + mStartingPool);
     }
 }

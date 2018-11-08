@@ -8,16 +8,17 @@ import com.example.lenovo.athletesfood.models.dataBase.DataBase;
 import com.example.lenovo.athletesfood.models.dataBase.user.User;
 import com.example.lenovo.athletesfood.models.dataBase.user.UserDao;
 
-public class UserAsyncTask extends AsyncTask<User, Void, Void> {
+public class UserAsyncTask extends AsyncTask<User, Void, User> {
     private int TASK_KEY;
     private DataBase dataBase;
 
     public UserAsyncTask(int TASK_KEY) {
         this.TASK_KEY = TASK_KEY;
     }
+    private User user;
 
     @Override
-    protected Void doInBackground(User... users) {
+    protected User doInBackground(User... users) {
 
         dataBase = AthletesFoodApp.getInstance().getDataBase();
         UserDao userDao = dataBase.userDao();
@@ -25,12 +26,8 @@ public class UserAsyncTask extends AsyncTask<User, Void, Void> {
         switch (TASK_KEY) {
             case Constants.TASK_INSERT:
                 userDao.insertUser(users[0]);
-                Log.d("AAA", "Room User: " + userDao.getAll().toString());
-                break;
-            case Constants.TASK_DELETE:
                 break;
         }
-
         return null;
     }
 }
