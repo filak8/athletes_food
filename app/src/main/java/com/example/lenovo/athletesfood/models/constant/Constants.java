@@ -18,8 +18,8 @@ public class Constants {
     public static final String ARGS_KEY_ASSET_PATH = "fonts/Sun.ttf";
     public static final String ARGS_KEY_OBJECT_ANIMATOR_PROGRESS = "progress";
 
-    public static final String ARGS_KEY_FOOD_TYPE_MEAT = "meat";
-    public static final String ARGS_KEY_FOOD_TYPE_PORRIDGE = "porridge";
+    public static final String ARGS_KEY_FOOD_TYPE_MEAT = "Meat";
+    public static final String ARGS_KEY_FOOD_TYPE_PORRIDGE = "Porridge";
 
     public static final String ARGS_KEY_FOOD_NAME = "food_name";
     public static final String ARGS_KEY_FOOD_KCAL = "food_kcal";

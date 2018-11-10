@@ -21,7 +21,6 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductViewHold
                                   OnProductClickListener onProductClickListener) {
         this.mAlFood = mAlFood;
         this.onProductClickListener = onProductClickListener;
-
     }
 
     @NonNull

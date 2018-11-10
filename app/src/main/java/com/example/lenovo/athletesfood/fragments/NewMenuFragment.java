@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.Button;
 
 import com.example.lenovo.athletesfood.AthletesFoodApp;
 import com.example.lenovo.athletesfood.MenuCalculator;
+import com.example.lenovo.athletesfood.OnAddWeightButtonClickListener;
 import com.example.lenovo.athletesfood.OnMenuCalculatorFinishedListener;
 import com.example.lenovo.athletesfood.R;
 import com.example.lenovo.athletesfood.adapters.NewMenuRecyclerAdapter;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewMenuFragment extends Fragment implements View.OnClickListener,
-        OnMenuCalculatorFinishedListener {
+        OnMenuCalculatorFinishedListener, OnAddWeightButtonClickListener {
     private Button mBtnAddNewProduct;
     private String mFoodName;
     private RecyclerView mRvProduct;
@@ -63,7 +65,13 @@ public class NewMenuFragment extends Fragment implements View.OnClickListener,
 
     @Override
     public void onMenuCalculatorFinished(int mSumCalories, ArrayList<Integer> mAlWeight) {
-        mRvProduct.setAdapter(new NewMenuRecyclerAdapter(mAlFood, mAlWeight, mSumCalories));
+        mRvProduct.setAdapter(new NewMenuRecyclerAdapter(mAlFood, mAlWeight, mSumCalories,
+                this));
+    }
+
+    @Override
+    public void onAddWeightButtonClick(Food food) {
+        Log.d("AAA", "Add weight to " + food.getFoodName());
     }
 
     public interface OnAddedNewProductListener {

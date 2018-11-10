@@ -26,11 +26,11 @@ public class FoodDatabaseHelper {
     private void creatingAListOfProducts() {
         foods = new ArrayList<>();
 
-        createNewFood("buckwheat", "porridge", 137);
-        createNewFood("semolina", "porridge", 77);
-        createNewFood("ricePorrige", "porridge", 79);
-        createNewFood("mutton", "meat", 201);
-        createNewFood("beef", "meat", 191);
+        createNewFood("Buckwheat", "Porridge", 137);
+        createNewFood("Semolina", "Porridge", 77);
+        createNewFood("RicePorrige", "Porridge", 79);
+        createNewFood("Mutton", "Meat", 201);
+        createNewFood("Beef", "Meat", 191);
 
         insertFoodInDatabase(foods);
     }

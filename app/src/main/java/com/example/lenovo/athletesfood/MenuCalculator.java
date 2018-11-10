@@ -69,8 +69,5 @@ public class MenuCalculator implements OnAsyncTaskFinishedListener {
                     Constants.NUMBER_HUNDRED);
             mAlProductWeight.add(mFoodWeight);
         }
-
     }
-
-
 }

@@ -26,6 +26,11 @@
     <string name="menu_history">History</string>
     <string name="create_new_menu">Create new menu</string>
     <string name="add_new_product">+ Add product</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="product_name">Product\'s name</string>
+    <string name="product_weight">Weight, g </string>
+    <string name="product_calories">Calories, kcal </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
