@@ -29,7 +29,6 @@ public class BodyAppActivity extends AppCompatActivity implements
         NewMenuFragment.OnAddedNewProductListener {
 
     private BottomNavigationView mBottomNavigationView;
-    private FrameLayout mFrameLayout;
     private ListMenuFragment mListMenuFragment;
     private FoodDataBaseFragment mFoodDataBaseFragment;
     private HistoryFragment mHistoryFragment;
@@ -47,7 +46,7 @@ public class BodyAppActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_body_app);
 
         mBottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
-        mFrameLayout = (FrameLayout) findViewById(R.id.frame_layout);
+        FrameLayout mFrameLayout = (FrameLayout) findViewById(R.id.frame_layout);
 
         mListMenuFragment = new ListMenuFragment();
         mFoodDataBaseFragment = new FoodDataBaseFragment();
@@ -58,39 +57,40 @@ public class BodyAppActivity extends AppCompatActivity implements
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_menu:
-                        FRAGMENT_TAG = Constants.FRAGMENT_TAG_MENU;
-                        clearBackStackFragment();
-                        showFragmentByTag(FRAGMENT_TAG);
-                        return true;
-                    case R.id.action_data:
-                        FRAGMENT_TAG = Constants.FRAGMENT_TAG_FOOD_DATABASE;
-                        clearBackStackFragment();
-                        showFragmentByTag(FRAGMENT_TAG);
-                        return true;
-                    case R.id.action_history:
-                        FRAGMENT_TAG = Constants.FRAGMENT_TAG_HISTORY;
-                        clearBackStackFragment();
-                        showFragmentByTag(FRAGMENT_TAG);
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.action_menu:
+                                FRAGMENT_TAG = Constants.FRAGMENT_TAG_MENU;
+                                clearBackStackFragment();
+                                showFragmentByTag(FRAGMENT_TAG);
+                                return true;
+                            case R.id.action_data:
+                                FRAGMENT_TAG = Constants.FRAGMENT_TAG_FOOD_DATABASE;
+                                clearBackStackFragment();
+                                showFragmentByTag(FRAGMENT_TAG);
+                                return true;
+                            case R.id.action_history:
+                                FRAGMENT_TAG = Constants.FRAGMENT_TAG_HISTORY;
+                                clearBackStackFragment();
+                                showFragmentByTag(FRAGMENT_TAG);
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
     }
 
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction mFragmentTransaction = getSupportFragmentManager().beginTransaction();
-        if ((mActingFragment == mProductCategoriesFragment)||(mActingFragment == mProductFragment)
-                ||(mActingFragment == mNewMenuFragment)) {
+        mFragmentTransaction.replace(R.id.frame_layout, fragment);
+        if ((mActingFragment == mProductCategoriesFragment) || (mActingFragment == mProductFragment)
+                || (mActingFragment == mNewMenuFragment)) {
             mFragmentTransaction.addToBackStack(null);
         }
-        mFragmentTransaction.replace(R.id.frame_layout, fragment);
+
 
         mFragmentTransaction.commit();
     }
@@ -121,7 +121,6 @@ public class BodyAppActivity extends AppCompatActivity implements
                 break;
             case Constants.FRAGMENT_TAG_FOOD_DATABASE:
                 mActingFragment = mFoodDataBaseFragment;
-                Log.d("AAA", "mActingFragment = mFoodDataBaseFragment;");
                 break;
             case Constants.FRAGMENT_TAG_HISTORY:
                 mActingFragment = mHistoryFragment;
@@ -143,10 +142,9 @@ public class BodyAppActivity extends AppCompatActivity implements
     }
 
     private void clearBackStackFragment() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0){
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             for (int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); i++)
-            getSupportFragmentManager().popBackStack();
-            Log.d("AAA", "Backstack is null");
+                getSupportFragmentManager().popBackStack();
         }
     }
 
@@ -163,11 +161,16 @@ public class BodyAppActivity extends AppCompatActivity implements
     @Override
     public void onProductSelected(Food food) {
         mActingFragment = mNewMenuFragment;
-        setFragment(mNewMenuFragment);
+
 
         Bundle bundle = new Bundle();
         bundle.putString(Constants.ARGS_KEY_FOOD_NAME, food.getFoodName());
         mNewMenuFragment.setArguments(bundle);
+
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            getSupportFragmentManager().popBackStack();
+            getSupportFragmentManager().popBackStack();
+        }
     }
 
     @Override

@@ -24,6 +24,8 @@ public class Constants {
     public static final String ARGS_KEY_FOOD_NAME = "food_name";
     public static final String ARGS_KEY_FOOD_KCAL = "food_kcal";
 
+    public static final String ARGS_KEY_EMPTY_NAME = " ";
+
     public static final float COEFF_OF_MOBILITY_LOW = 1.2f;
     public static final float COEFF_OF_MOBILITY_SMALL = 1.38f;
     public static final float COEFF_OF_MOBILITY_MIDDLE = 1.55f;
@@ -35,6 +37,9 @@ public class Constants {
     public static final int TASK_INSERT = 1;
     public static final int TASK_DELETE = 2;
     public static final int TASK_GET = 3;
+
+    public static final int FLAG_ADD_WEIGHT = 1;
+    public static final int FLAG_LOSE_WEIGHT = 2;
 
     public static final int FRAGMENT_TAG_MENU = 1;
     public static final int FRAGMENT_TAG_FOOD_DATABASE = 2;
@@ -61,6 +66,7 @@ public class Constants {
     public static final int GRID_LAYOUT_SPAN_COUNT = 3;
     public static final int INDEX_OF_REITERATION_NEGATIVE = 0;
     public static final int INDEX_OF_REITERATION_POSITIVE = 1;
+    public static final int WEIGHT_CHANGE_INTERVAL = 25;
 
     public static final int HANDLER_DELAY_MILLIS = 3000;
     public static final int OBJECT_ANIMATOR_DURATION = 4000;

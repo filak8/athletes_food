@@ -62,7 +62,8 @@ public class MenuCalculator implements OnAsyncTaskFinishedListener {
     }
 
     private void calculateFinalCaloriesAndWeight() {
-        mProductCalories = (int) (mSumCalories / mAlAddedFood.size());
+       /* mProductCalories = (int) (mSumCalories / mAlAddedFood.size());*/
+
 
         for (int i = 0; i < mAlAddedFood.size(); i++) {
             int mFoodWeight = (int) ((mProductCalories / mAlAddedFood.get(i).getKcal()) *
