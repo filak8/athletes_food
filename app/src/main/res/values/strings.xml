@@ -34,6 +34,7 @@
     <string name="product_reiteration">Product already added to menu</string>
     <string name="energy_pool">Energy pool: </string>
     <string name="save_menu">Save menu</string>
+    <string name="add_new_food_in_database">Add food</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

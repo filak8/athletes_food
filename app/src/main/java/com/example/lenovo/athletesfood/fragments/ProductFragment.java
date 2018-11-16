@@ -69,6 +69,27 @@ public class ProductFragment extends Fragment implements OnProductClickListener 
                 case Constants.ARGS_KEY_FOOD_TYPE_PORRIDGE:
                     foods = foodDao.getAllPorridge();
                     break;
+                case Constants.ARGS_KEY_FOOD_TYPE_MILK_PRODUCTS:
+                    foods = foodDao.getAllMilkProducts();
+                    break;
+                case Constants.ARGS_KEY_FOOD_TYPE_VEGETABLES:
+                    foods = foodDao.getAllVegetables();
+                    break;
+                case Constants.ARGS_KEY_FOOD_TYPE_NUTS:
+                    foods = foodDao.getAllNuts();
+                    break;
+                case Constants.ARGS_KEY_FOOD_TYPE_SEA_FOOD:
+                    foods = foodDao.getAllSeaFoods();
+                    break;
+                case Constants.ARGS_KEY_FOOD_TYPE_DRIED_FRUITS:
+                    foods = foodDao.getAllDriedFruits();
+                    break;
+                case Constants.ARGS_KEY_FOOD_TYPE_FRUITS_AND_BERRIES:
+                    foods = foodDao.getAllFruitsAndBerries();
+                    break;
+                case Constants.ARGS_KEY_FOOD_TYPE_EGGS:
+                    foods = foodDao.getAllEggs();
+                    break;
                 default:
                     break;
             }

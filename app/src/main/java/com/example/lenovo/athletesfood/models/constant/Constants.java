@@ -20,6 +20,13 @@ public class Constants {
 
     public static final String ARGS_KEY_FOOD_TYPE_MEAT = "Meat";
     public static final String ARGS_KEY_FOOD_TYPE_PORRIDGE = "Porridge";
+    public static final String ARGS_KEY_FOOD_TYPE_MILK_PRODUCTS = "Milk products";
+    public static final String ARGS_KEY_FOOD_TYPE_VEGETABLES = "Vegetables";
+    public static final String ARGS_KEY_FOOD_TYPE_NUTS = "Nuts";
+    public static final String ARGS_KEY_FOOD_TYPE_DRIED_FRUITS = "Dried fruits";
+    public static final String ARGS_KEY_FOOD_TYPE_SEA_FOOD = "Sea foods";
+    public static final String ARGS_KEY_FOOD_TYPE_FRUITS_AND_BERRIES = "Fruits and berries";
+    public static final String ARGS_KEY_FOOD_TYPE_EGGS = "Eggs";
 
     public static final String ARGS_KEY_FOOD_NAME = "food_name";
     public static final String ARGS_KEY_FOOD_KCAL = "food_kcal";
