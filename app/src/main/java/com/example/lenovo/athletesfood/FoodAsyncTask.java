@@ -27,9 +27,6 @@ public class FoodAsyncTask extends AsyncTask<Food, Void, Void> {
                 break;
             case Constants.TASK_DELETE:
                 break;
-            case Constants.TASK_GET:
-
-                break;
         }
 
         return null;

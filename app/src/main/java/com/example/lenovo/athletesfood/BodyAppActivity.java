@@ -6,14 +6,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
+import com.example.lenovo.athletesfood.fragments.NewFoodFragment;
 import com.example.lenovo.athletesfood.fragments.NewMenuFragment;
 import com.example.lenovo.athletesfood.fragments.ProductCategoriesFragment;
-import com.example.lenovo.athletesfood.fragments.FoodDataBaseFragment;
+import com.example.lenovo.athletesfood.fragments.FoodDatabaseFragment;
 import com.example.lenovo.athletesfood.fragments.HistoryFragment;
 import com.example.lenovo.athletesfood.fragments.ListMenuFragment;
 import com.example.lenovo.athletesfood.fragments.ProductFragment;
@@ -26,17 +25,18 @@ public class BodyAppActivity extends AppCompatActivity implements
         ListMenuFragment.OnCreatedMenuListener,
         ProductCategoriesFragment.OnSelectedProductCategoriesListener,
         ProductFragment.OnSelectedProductListener,
-        NewMenuFragment.OnAddedNewProductListener {
+        NewMenuFragment.OnAddedNewProductListener,
+        FoodDatabaseFragment.OnAddNewFoodClickListener{
 
     private BottomNavigationView mBottomNavigationView;
     private ListMenuFragment mListMenuFragment;
-    private FoodDataBaseFragment mFoodDataBaseFragment;
+    private FoodDatabaseFragment mFoodDatabaseFragment;
     private HistoryFragment mHistoryFragment;
     private ProductCategoriesFragment mProductCategoriesFragment;
     private ProductFragment mProductFragment;
     private NewMenuFragment mNewMenuFragment;
+    private NewFoodFragment mNewFoodFragment;
     private Fragment mActingFragment;
-    private ArrayList<Food> foods;
 
     private int FRAGMENT_TAG;
 
@@ -49,11 +49,12 @@ public class BodyAppActivity extends AppCompatActivity implements
         FrameLayout mFrameLayout = (FrameLayout) findViewById(R.id.frame_layout);
 
         mListMenuFragment = new ListMenuFragment();
-        mFoodDataBaseFragment = new FoodDataBaseFragment();
+        mFoodDatabaseFragment = new FoodDatabaseFragment();
         mHistoryFragment = new HistoryFragment();
         mProductCategoriesFragment = new ProductCategoriesFragment();
         mProductFragment = new ProductFragment();
         mNewMenuFragment = new NewMenuFragment();
+        mNewFoodFragment = new NewFoodFragment();
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -87,7 +88,7 @@ public class BodyAppActivity extends AppCompatActivity implements
         FragmentTransaction mFragmentTransaction = getSupportFragmentManager().beginTransaction();
         mFragmentTransaction.replace(R.id.frame_layout, fragment);
         if ((mActingFragment == mProductCategoriesFragment) || (mActingFragment == mProductFragment)
-                || (mActingFragment == mNewMenuFragment)) {
+                || (mActingFragment == mNewMenuFragment) || (mActingFragment == mNewFoodFragment)) {
             mFragmentTransaction.addToBackStack(null);
         }
 
@@ -120,7 +121,7 @@ public class BodyAppActivity extends AppCompatActivity implements
                 mActingFragment = mListMenuFragment;
                 break;
             case Constants.FRAGMENT_TAG_FOOD_DATABASE:
-                mActingFragment = mFoodDataBaseFragment;
+                mActingFragment = mFoodDatabaseFragment;
                 break;
             case Constants.FRAGMENT_TAG_HISTORY:
                 mActingFragment = mHistoryFragment;
@@ -177,5 +178,11 @@ public class BodyAppActivity extends AppCompatActivity implements
     public void onNewProductAdded() {
         mActingFragment = mProductCategoriesFragment;
         setFragment(mProductCategoriesFragment);
+    }
+
+    @Override
+    public void onAddNewFoodClick() {
+        mActingFragment = mNewFoodFragment;
+        setFragment(mNewFoodFragment);
     }
 }

@@ -9,19 +9,14 @@ import android.view.ViewGroup;
 
 import com.example.lenovo.athletesfood.R;
 
-public class FoodDataBaseFragment extends Fragment {
-
-
-    public FoodDataBaseFragment() {
-        // Required empty public constructor
-    }
-
+public class NewFoodFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food_data_base, container, false);
+       View view = inflater.inflate(R.layout.fragment_new_food, container, false);
+
+        return view;
     }
 
 }

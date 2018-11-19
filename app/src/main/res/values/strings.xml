@@ -30,7 +30,10 @@
     <string name="minus">-</string>
     <string name="product_name">Product\'s name</string>
     <string name="product_weight">Weight, g </string>
-    <string name="product_calories">Calories, kcal </string>
+    <string name="product_calories">Calories,\nkcal </string>
+    <string name="product_proteins">Proteins, g</string>
+    <string name="product_fats">Fats, g</string>
+    <string name="product_carbohydrates">Carbohy\ndrates, g</string>
     <string name="product_reiteration">Product already added to menu</string>
     <string name="energy_pool">Energy pool: </string>
     <string name="save_menu">Save menu</string>

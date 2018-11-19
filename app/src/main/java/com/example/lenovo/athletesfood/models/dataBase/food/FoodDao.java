@@ -43,4 +43,28 @@ public interface FoodDao {
 
     @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Eggs'")
     List<Food> getAllEggs();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Bakery products'")
+    List<Food> getAllBakeryProducts();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Sweets'")
+    List<Food> getAllSweets();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Butter, margarine, fats'")
+    List<Food> getAllButterMargarineFats();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Sausages'")
+    List<Food> getAllSausages();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Mushrooms'")
+    List<Food> getAllMushrooms();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Soft drinks'")
+    List<Food> getAllSoftDrinks();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Alcoholic beverages'")
+    List<Food> getAllAlcoholicBeverages();
+
+    @Query("SELECT * FROM " + Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE + " WHERE foodType = 'Other'")
+    List<Food> getAllOther();
 }

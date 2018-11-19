@@ -8,10 +8,14 @@ import com.example.lenovo.athletesfood.models.constant.Constants;
 
 @Entity(tableName = Constants.ARGS_KEY_DATABASE_TABLE_NAME_FOOD_DATABASE)
 public class Food {
-    @PrimaryKey @NonNull
     private String foodName;
     private String foodType;
     private float kcal;
+    private float proteins;
+    private float fats;
+    private float carbohydrates;
+    @PrimaryKey (autoGenerate = true)
+    private int id;
 
     public String getFoodName() {
         return foodName;
@@ -35,5 +39,37 @@ public class Food {
 
     public void setFoodType(String foodType) {
         this.foodType = foodType;
+    }
+
+    public float getProteins() {
+        return proteins;
+    }
+
+    public void setProteins(float proteins) {
+        this.proteins = proteins;
+    }
+
+    public float getFats() {
+        return fats;
+    }
+
+    public void setFats(float fats) {
+        this.fats = fats;
+    }
+
+    public float getCarbohydrates() {
+        return carbohydrates;
+    }
+
+    public void setCarbohydrates(float carbohydrates) {
+        this.carbohydrates = carbohydrates;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
