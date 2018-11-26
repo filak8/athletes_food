@@ -15,8 +15,11 @@
         <activity android:name=".EnterUserWeightActivity" />
         <activity android:name=".EnterUserAgeActivity" />
         <activity android:name=".UserPickCoeffOfMobilityActivity" />
-        <activity android:name=".BodyAppActivity" />
-        <activity android:name=".SplashScreenActivity"
+        <activity
+            android:name=".BodyAppActivity"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

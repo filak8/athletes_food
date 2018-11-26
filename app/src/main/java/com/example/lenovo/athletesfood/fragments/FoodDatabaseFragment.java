@@ -54,11 +54,11 @@ public class FoodDatabaseFragment extends Fragment implements View.OnClickListen
         OnAddNewFoodClickListener onAddNewFoodClickListener =
                 (OnAddNewFoodClickListener) getActivity();
         if (onAddNewFoodClickListener != null)
-            onAddNewFoodClickListener.onAddNewFoodClick();
+            onAddNewFoodClickListener.onAddNewFoodClick(mAlFoodType);
     }
 
     public interface OnAddNewFoodClickListener{
-        void onAddNewFoodClick();
+        void onAddNewFoodClick(ArrayList<String> mAlFoodType);
     }
 
     class FoodDatabaseAsyncTask extends AsyncTask<Void, Void, List<Food>> {

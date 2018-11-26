@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.example.lenovo.athletesfood.fragments.NewFoodFragment;
+import com.example.lenovo.athletesfood.fragments.NewMealFragment;
 import com.example.lenovo.athletesfood.fragments.NewMenuFragment;
 import com.example.lenovo.athletesfood.fragments.ProductCategoriesFragment;
 import com.example.lenovo.athletesfood.fragments.FoodDatabaseFragment;
@@ -25,8 +26,9 @@ public class BodyAppActivity extends AppCompatActivity implements
         ListMenuFragment.OnCreatedMenuListener,
         ProductCategoriesFragment.OnSelectedProductCategoriesListener,
         ProductFragment.OnSelectedProductListener,
-        NewMenuFragment.OnAddedNewProductListener,
-        FoodDatabaseFragment.OnAddNewFoodClickListener{
+        NewMealFragment.OnAddedNewProductListener,
+        FoodDatabaseFragment.OnAddNewFoodClickListener,
+        NewFoodFragment.OnSaveProductInDatabaseClickListener {
 
     private BottomNavigationView mBottomNavigationView;
     private ListMenuFragment mListMenuFragment;
@@ -34,8 +36,9 @@ public class BodyAppActivity extends AppCompatActivity implements
     private HistoryFragment mHistoryFragment;
     private ProductCategoriesFragment mProductCategoriesFragment;
     private ProductFragment mProductFragment;
-    private NewMenuFragment mNewMenuFragment;
+    private NewMealFragment mNewMealFragment;
     private NewFoodFragment mNewFoodFragment;
+    private NewMenuFragment mNewMenuFragment;
     private Fragment mActingFragment;
 
     private int FRAGMENT_TAG;
@@ -53,8 +56,9 @@ public class BodyAppActivity extends AppCompatActivity implements
         mHistoryFragment = new HistoryFragment();
         mProductCategoriesFragment = new ProductCategoriesFragment();
         mProductFragment = new ProductFragment();
-        mNewMenuFragment = new NewMenuFragment();
+        mNewMealFragment = new NewMealFragment();
         mNewFoodFragment = new NewFoodFragment();
+        mNewMenuFragment = new NewMenuFragment();
 
         mBottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -88,7 +92,7 @@ public class BodyAppActivity extends AppCompatActivity implements
         FragmentTransaction mFragmentTransaction = getSupportFragmentManager().beginTransaction();
         mFragmentTransaction.replace(R.id.frame_layout, fragment);
         if ((mActingFragment == mProductCategoriesFragment) || (mActingFragment == mProductFragment)
-                || (mActingFragment == mNewMenuFragment) || (mActingFragment == mNewFoodFragment)) {
+                || (mActingFragment == mNewMealFragment) || (mActingFragment == mNewFoodFragment)) {
             mFragmentTransaction.addToBackStack(null);
         }
 
@@ -143,7 +147,7 @@ public class BodyAppActivity extends AppCompatActivity implements
     }
 
     private void clearBackStackFragment() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+        if (getSupportFragmentManager().getBackStackEntryCount() > Constants.NUMBER_NULL) {
             for (int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); i++)
                 getSupportFragmentManager().popBackStack();
         }
@@ -161,12 +165,11 @@ public class BodyAppActivity extends AppCompatActivity implements
 
     @Override
     public void onProductSelected(Food food) {
-        mActingFragment = mNewMenuFragment;
-
+        mActingFragment = mNewMealFragment;
 
         Bundle bundle = new Bundle();
         bundle.putString(Constants.ARGS_KEY_FOOD_NAME, food.getFoodName());
-        mNewMenuFragment.setArguments(bundle);
+        mNewMealFragment.setArguments(bundle);
 
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             getSupportFragmentManager().popBackStack();
@@ -181,8 +184,19 @@ public class BodyAppActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onAddNewFoodClick() {
+    public void onAddNewFoodClick(ArrayList<String> mAlFoodType) {
         mActingFragment = mNewFoodFragment;
         setFragment(mNewFoodFragment);
+
+        Bundle bundle = new Bundle();
+        bundle.putStringArrayList(Constants.ARGS_KEY_BUNDLE_ARRAY_LIST_ALL_FOOD_TYPE, mAlFoodType);
+        mNewFoodFragment.setArguments(bundle);
+    }
+
+    @Override
+    public void onSaveProductInDatabase() {
+        mActingFragment = mFoodDatabaseFragment;
+        clearBackStackFragment();
+        setFragment(mActingFragment);
     }
 }

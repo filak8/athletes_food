@@ -2,6 +2,8 @@ package com.example.lenovo.athletesfood.models.dataBase.food;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 import com.example.lenovo.athletesfood.models.constant.Constants;
@@ -10,7 +12,7 @@ import com.example.lenovo.athletesfood.models.constant.Constants;
 public class Food {
     private String foodName;
     private String foodType;
-    private float kcal;
+    private int kcal;
     private float proteins;
     private float fats;
     private float carbohydrates;
@@ -25,11 +27,11 @@ public class Food {
         this.foodName = foodName;
     }
 
-    public float getKcal() {
+    public int getKcal() {
         return kcal;
     }
 
-    public void setKcal(float kcal) {
+    public void setKcal(int kcal) {
         this.kcal = kcal;
     }
 
@@ -72,4 +74,5 @@ public class Food {
     public void setId(int id) {
         this.id = id;
     }
+
 }

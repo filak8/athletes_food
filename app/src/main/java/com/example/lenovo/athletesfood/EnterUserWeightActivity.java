@@ -48,9 +48,8 @@ public class EnterUserWeightActivity extends AppCompatActivity {
                 (Constants.ARGS_KEY_SHARED_PREFERENSES, MODE_PRIVATE);
         SharedPreferences.Editor editor = mShpSetWeight.edit();
         editor.putFloat(Constants.ARGS_KEY_SHARED_PREFERENSES_EDITOR_WEIGHT,
-                (float) mNpWeightInteger.getValue() + ((float)(mNpWeightDecimal.getValue())/10));
-        Log.d("AAA", "SharedPrefernses Weight: " +
-                ((float) mNpWeightInteger.getValue() + ((float)(mNpWeightDecimal.getValue())/10)));
+                (float) mNpWeightInteger.getValue() + ((float)(mNpWeightDecimal.getValue())
+                        /Constants.NUMBER_TEN));
         editor.apply();
     }
 }
